@@ -21,10 +21,10 @@ SQL_GET_MONTH_TOP_STORES = '''select st.id, st.address, sum(i.price) as revenue
                             group by st.id, st.address
                             order by revenue desc
                             limit 10;'''
-SQL_GET_TOP_ITEMS = '''select i.id, i.item_name, count(*) as cnt
+SQL_GET_TOP_ITEMS = '''select i.id, i.name, count(*) as cnt
                     from sales s
                     join item i on s.item_id = i.id
-                    group by i.id, i.item_name
+                    group by i.id, i.name
                     order by cnt desc
                     limit 10;'''
 SQL_SALE = '''insert into sales(item_id, store_id) VALUES($1, $2);'''
